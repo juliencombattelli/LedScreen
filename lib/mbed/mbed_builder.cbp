@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="mbed_builder" />
+		<Option pch_mode="2" />
+		<Option compiler="arm-elf-gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/mbed" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="arm-elf-gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/mbed" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="arm-elf-gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=gnu++98 -fno-rtti -Wvla -c -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fmessage-length=0 -fno-exceptions -fno-builtin -ffunction-sections -fdata-sections -funsigned-char -MMD -fno-delete-null-pointer-checks -fomit-frame-pointer -Os -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MBED__=1 -DDEVICE_I2CSLAVE=1 -DTARGET_LIKE_MBED -DDEVICE_PORTOUT=1 -DUSBHOST_OTHER -DDEVICE_PORTINOUT=1 -DTARGET_RTOS_M4_M7 -DDEVICE_LOWPOWERTIMER=1 -DDEVICE_RTC=1 -DTOOLCHAIN_object -DDEVICE_SERIAL_ASYNCH=1 -DTARGET_STM32F4 -D__CMSIS_RTOS -D__CORTEX_M4 -DTOOLCHAIN_GCC -DDEVICE_I2C_ASYNCH=1 -DTARGET_CORTEX_M -DTARGET_LIKE_CORTEX_M4 -DTARGET_M4 -DTARGET_UVISOR_UNSUPPORTED -DDEVICE_SPI_ASYNCH=1 -DDEVICE_SERIAL=1 -DDEVICE_ERROR_RED=1 -DMBED_BUILD_TIMESTAMP=1484152081.83 -DDEVICE_I2C=1 -DTRANSACTION_QUEUE_SIZE_SPI=2 -DTARGET_NUCLEO_F411RE -DDEVICE_STDIO_MESSAGES=1 -DTARGET_FF_MORPHO -D__FPU_PRESENT=1 -DTARGET_FF_ARDUINO -DDEVICE_PORTIN=1 -DTARGET_RELEASE -DTARGET_STM -DDEVICE_SERIAL_FC=1 -D__MBED_CMSIS_RTOS_CM -DDEVICE_SLEEP=1 -DTOOLCHAIN_GCC_ARM -DDEVICE_SPI=1 -DUSB_STM_HAL -DDEVICE_INTERRUPTIN=1 -DDEVICE_SPISLAVE=1 -DDEVICE_ANALOGIN=1 -DDEVICE_PWMOUT=1 -DTARGET_STM32F411RE -DARM_MATH_CM4" />
+			<Add option="-DMBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE=115200" />
+			<Add directory="." />
+			<Add directory="cmsis" />
+			<Add directory="drivers" />
+			<Add directory="hal" />
+			<Add directory="platform" />
+			<Add directory="targets/TARGET_STM" />
+			<Add directory="targets/TARGET_STM/TARGET_STM32F4" />
+			<Add directory="targets/TARGET_STM/TARGET_STM32F4/device" />
+			<Add directory="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE" />
+			<Add directory="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device" />
+		</Compiler>
+		<Unit filename="cmsis/arm_common_tables.h" />
+		<Unit filename="cmsis/arm_const_structs.h" />
+		<Unit filename="cmsis/arm_math.h" />
+		<Unit filename="cmsis/core_ca9.h" />
+		<Unit filename="cmsis/core_caFunc.h" />
+		<Unit filename="cmsis/core_caInstr.h" />
+		<Unit filename="cmsis/core_ca_mmu.h" />
+		<Unit filename="cmsis/core_cm0.h" />
+		<Unit filename="cmsis/core_cm3.h" />
+		<Unit filename="cmsis/core_cm4.h" />
+		<Unit filename="cmsis/core_cm4_simd.h" />
+		<Unit filename="cmsis/core_cm7.h" />
+		<Unit filename="cmsis/core_cmFunc.h" />
+		<Unit filename="cmsis/core_cmInstr.h" />
+		<Unit filename="cmsis/core_cmSecureAccess.h" />
+		<Unit filename="cmsis/core_cmSimd.h" />
+		<Unit filename="cmsis/core_sc000.h" />
+		<Unit filename="cmsis/core_sc300.h" />
+		<Unit filename="drivers/AnalogIn.cpp" />
+		<Unit filename="drivers/AnalogIn.h" />
+		<Unit filename="drivers/AnalogOut.h" />
+		<Unit filename="drivers/BusIn.cpp" />
+		<Unit filename="drivers/BusIn.h" />
+		<Unit filename="drivers/BusInOut.cpp" />
+		<Unit filename="drivers/BusInOut.h" />
+		<Unit filename="drivers/BusOut.cpp" />
+		<Unit filename="drivers/BusOut.h" />
+		<Unit filename="drivers/CAN.cpp" />
+		<Unit filename="drivers/CAN.h" />
+		<Unit filename="drivers/DigitalIn.h" />
+		<Unit filename="drivers/DigitalInOut.h" />
+		<Unit filename="drivers/DigitalOut.h" />
+		<Unit filename="drivers/DirHandle.h" />
+		<Unit filename="drivers/Ethernet.cpp" />
+		<Unit filename="drivers/Ethernet.h" />
+		<Unit filename="drivers/FileBase.cpp" />
+		<Unit filename="drivers/FileBase.h" />
+		<Unit filename="drivers/FileHandle.h" />
+		<Unit filename="drivers/FileLike.cpp" />
+		<Unit filename="drivers/FileLike.h" />
+		<Unit filename="drivers/FilePath.cpp" />
+		<Unit filename="drivers/FilePath.h" />
+		<Unit filename="drivers/FileSystemLike.cpp" />
+		<Unit filename="drivers/FileSystemLike.h" />
+		<Unit filename="drivers/I2C.cpp" />
+		<Unit filename="drivers/I2C.h" />
+		<Unit filename="drivers/I2CSlave.cpp" />
+		<Unit filename="drivers/I2CSlave.h" />
+		<Unit filename="drivers/InterruptIn.cpp" />
+		<Unit filename="drivers/InterruptIn.h" />
+		<Unit filename="drivers/InterruptManager.cpp" />
+		<Unit filename="drivers/InterruptManager.h" />
+		<Unit filename="drivers/LocalFileSystem.cpp" />
+		<Unit filename="drivers/LocalFileSystem.h" />
+		<Unit filename="drivers/LowPowerTicker.h" />
+		<Unit filename="drivers/LowPowerTimeout.h" />
+		<Unit filename="drivers/LowPowerTimer.h" />
+		<Unit filename="drivers/PortIn.h" />
+		<Unit filename="drivers/PortInOut.h" />
+		<Unit filename="drivers/PortOut.h" />
+		<Unit filename="drivers/PwmOut.h" />
+		<Unit filename="drivers/RawSerial.cpp" />
+		<Unit filename="drivers/RawSerial.h" />
+		<Unit filename="drivers/SPI.cpp" />
+		<Unit filename="drivers/SPI.h" />
+		<Unit filename="drivers/SPISlave.cpp" />
+		<Unit filename="drivers/SPISlave.h" />
+		<Unit filename="drivers/Serial.cpp" />
+		<Unit filename="drivers/Serial.h" />
+		<Unit filename="drivers/SerialBase.cpp" />
+		<Unit filename="drivers/SerialBase.h" />
+		<Unit filename="drivers/Stream.cpp" />
+		<Unit filename="drivers/Stream.h" />
+		<Unit filename="drivers/Ticker.cpp" />
+		<Unit filename="drivers/Ticker.h" />
+		<Unit filename="drivers/Timeout.cpp" />
+		<Unit filename="drivers/Timeout.h" />
+		<Unit filename="drivers/Timer.cpp" />
+		<Unit filename="drivers/Timer.h" />
+		<Unit filename="drivers/TimerEvent.cpp" />
+		<Unit filename="drivers/TimerEvent.h" />
+		<Unit filename="hal/Driver_Common.h" />
+		<Unit filename="hal/Driver_Storage.h" />
+		<Unit filename="hal/analogin_api.h" />
+		<Unit filename="hal/analogout_api.h" />
+		<Unit filename="hal/buffer.h" />
+		<Unit filename="hal/can_api.h" />
+		<Unit filename="hal/can_helper.h" />
+		<Unit filename="hal/dma_api.h" />
+		<Unit filename="hal/emac_api.h" />
+		<Unit filename="hal/ethernet_api.h" />
+		<Unit filename="hal/gpio_api.h" />
+		<Unit filename="hal/gpio_irq_api.h" />
+		<Unit filename="hal/i2c_api.h" />
+		<Unit filename="hal/lp_ticker_api.h" />
+		<Unit filename="hal/mbed_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal/mbed_lp_ticker_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal/mbed_pinmap_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal/mbed_ticker_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal/mbed_us_ticker_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal/pinmap.h" />
+		<Unit filename="hal/port_api.h" />
+		<Unit filename="hal/pwmout_api.h" />
+		<Unit filename="hal/rtc_api.h" />
+		<Unit filename="hal/serial_api.h" />
+		<Unit filename="hal/sleep_api.h" />
+		<Unit filename="hal/spi_api.h" />
+		<Unit filename="hal/storage_abstraction/Driver_Common.h" />
+		<Unit filename="hal/storage_abstraction/Driver_Storage.h" />
+		<Unit filename="hal/ticker_api.h" />
+		<Unit filename="hal/trng_api.h" />
+		<Unit filename="hal/us_ticker_api.h" />
+		<Unit filename="platform/CThunk.h" />
+		<Unit filename="platform/CallChain.cpp" />
+		<Unit filename="platform/CallChain.h" />
+		<Unit filename="platform/Callback.h" />
+		<Unit filename="platform/CircularBuffer.h" />
+		<Unit filename="platform/FunctionPointer.h" />
+		<Unit filename="platform/PlatformMutex.h" />
+		<Unit filename="platform/SingletonPtr.h" />
+		<Unit filename="platform/Transaction.h" />
+		<Unit filename="platform/critical.h" />
+		<Unit filename="platform/mbed_alloc_wrappers.cpp" />
+		<Unit filename="platform/mbed_assert.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_assert.h" />
+		<Unit filename="platform/mbed_board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_critical.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_debug.h" />
+		<Unit filename="platform/mbed_error.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_error.h" />
+		<Unit filename="platform/mbed_interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_interface.h" />
+		<Unit filename="platform/mbed_mem_trace.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_mem_trace.h" />
+		<Unit filename="platform/mbed_preprocessor.h" />
+		<Unit filename="platform/mbed_rtc_time.cpp" />
+		<Unit filename="platform/mbed_semihost_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_stats.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_stats.h" />
+		<Unit filename="platform/mbed_wait_api_no_rtos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="platform/mbed_wait_api_rtos.cpp" />
+		<Unit filename="platform/platform.h" />
+		<Unit filename="platform/retarget.cpp" />
+		<Unit filename="platform/rtc_time.h" />
+		<Unit filename="platform/semihost_api.h" />
+		<Unit filename="platform/toolchain.h" />
+		<Unit filename="platform/wait_api.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/PeripheralPins.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/PeripheralNames.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/PeripheralPins.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/PinNames.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/PortNames.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/cmsis.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/cmsis_nvic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/cmsis_nvic.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/hal_tick.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/stm32f411xe.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/stm32f4xx.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/system_stm32f4xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/device/system_stm32f4xx.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/TARGET_NUCLEO_F411RE/objects.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/analogin_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/analogout_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/can_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/common_objects.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32_hal_legacy.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_adc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_adc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_adc_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_can.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_can.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cec.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_conf.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cortex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_crc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cryp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cryp.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cryp_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_cryp_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dac_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dcmi_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_def.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dfsdm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dfsdm.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma2d.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma2d.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dma_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_dsi.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_eth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_eth.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ramfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_flash_ramfunc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_fmpi2c_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_gpio.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_gpio_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hash_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_hcd.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2c.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2c_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2c_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_i2s_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_irda.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_irda.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_iwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_iwdg.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_lptim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_lptim.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_ltdc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_ltdc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_ltdc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_ltdc_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_msp_template.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nand.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nand.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_nor.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pccard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pccard.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pcd.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pcd_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pcd_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_pwr_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_qspi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_qspi.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rcc_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rng.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rtc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rtc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_rtc_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sai.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sai.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sai_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sai_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sd.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sdram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sdram.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_smartcard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_smartcard.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spdifrx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spdifrx.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_spi.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_sram.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_tim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_tim.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_tim_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_tim_ex.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_uart.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_usart.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_wwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_hal_wwdg.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fmc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fsmc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_fsmc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_sdmmc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_sdmmc.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/device/stm32f4xx_ll_usb.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/gpio_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/gpio_irq_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/gpio_object.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/i2c_device.h" />
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/mbed_overrides.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/pinmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/port_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/pwmout_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/serial_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/TARGET_STM32F4/spi_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/hal_tick_16b.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/hal_tick_32b.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/i2c_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/lp_ticker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/mbed_rtx.h" />
+		<Unit filename="targets/TARGET_STM/rtc_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/rtc_api_hal.h" />
+		<Unit filename="targets/TARGET_STM/sleep.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/stm_spi_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/trng_api.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/us_ticker_16b.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="targets/TARGET_STM/us_ticker_32b.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
