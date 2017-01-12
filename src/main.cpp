@@ -10,6 +10,7 @@
 
 #include <mbed.h>
 #include <stdint.h>
+#include <time.h>
 
 #define NB_LIGNE 21
 #define NB_COLONNE 21
@@ -349,13 +350,13 @@ void afficher_image_une_fois(bool mon_tab[NB_LIGNE][NB_COLONNE])
 void afficher_image(bool mon_tab[NB_LIGNE][NB_COLONNE], int temps_ms)
 {
   // Temps d'affichage de l'image
-  long start_time = HAL_GetTick();
+  long start_time = time(NULL);
   long temps_total = 0;
 
   while ( temps_total < temps_ms )
   {
       afficher_image_une_fois( mon_tab );
-      temps_total = HAL_GetTick() - start_time;
+      temps_total = time(NULL) - start_time;
    }
 }
 
@@ -417,7 +418,7 @@ void allumer_ligne(float temps_ms, int n_ligne)
 
 void init()
 {
-	HAL_Init();
+	//HAL_Init();
 
 	//GPIO_initOut(GPIOA, GPIO_PIN_5, 0);
 
@@ -451,15 +452,15 @@ int main(void)
 	/*
 	 * For test
 	 */
-    while(1)
+    /*while(1)
     {
         myled = 1; // LED is ON
         wait(0.2); // 200 ms
         myled = 0; // LED is OFF
         wait(5.0); // 1 sec
-    }
+    }*/
 
-	/*for(;;)
+	for(;;)
 	{
 		//clearRegisters();
 		// Phase de demarrage
@@ -473,6 +474,6 @@ int main(void)
 		clearRegisters();
 		writeRegisters();
 		while(1);
-	}*/
+	}
 }
 
