@@ -15,7 +15,7 @@ LedScreen::LedScreen(int rowCount, int columnCount, const SN74HC595_Config& rowC
 	clear();
 }
 
-void LedScreen::display(bool **matrix)
+void LedScreen::display(const bool **matrix)
 {
     for(int rowIndex = 0; rowIndex < m_rowCount; rowIndex++)
     {
@@ -23,20 +23,25 @@ void LedScreen::display(bool **matrix)
 
         for(int columnIndex = 0; columnIndex < m_columnCount; columnIndex++)
         {
-            if (matrix[m_rowCount - 1 - rowIndex][m_columnCount - 1 - columnIndex])
-            	m_columns[m_columnCount - 1 - columnIndex] = 1;
+            if (matrix[m_rowCount - 1 - rowIndex][columnIndex])
+            	m_columns[columnIndex] = 1;
             else
-            	m_rows[m_rowCount - 1 - rowIndex] = 0;
+            	m_columns[columnIndex] = 0;
         }
 
         m_rows.write();
         m_columns.write();
+
         wait_ms(m_delay_ms);
+
         m_rows[rowIndex] = 0;
+
+        m_columns.clear();
+        m_columns.write();
     }
 }
 
-void LedScreen::display(bool **matrix, int frameTime_ms)
+void LedScreen::display(const bool **matrix, int frameTime_ms)
 {
 	time_t startTime = time(NULL);
 	time_t timeTotal = 0;

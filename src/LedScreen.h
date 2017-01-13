@@ -18,8 +18,8 @@ public:
 
 	LedScreen(int rowCount, int columnCount, const SN74HC595_Config& rowConfig, const SN74HC595_Config& columnConfig);
 
-	void display(bool **matrix);
-	void display(bool **matrix, int duration_ms);
+	void display(const bool **matrix);
+	void display(const bool **matrix, int duration_ms);
 
 	void displayRow(int rowIndex, int frameTime_ms);
 	void displayColumn(int columnIndex, int frameTime_ms);
