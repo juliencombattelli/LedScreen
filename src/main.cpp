@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include <time.h>
 #include <LedScreen.h>
+#include <vector>
 
 const bool SPACE[5][5] ={{0,0,0,0,0},
                     {0,0,0,0,0},
@@ -164,6 +165,12 @@ bool image_smiley[21][21] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 
 int main(void)
 {
+	bool* temp[21];
+	for (int i = 0; i < 21; ++i)
+		temp[i] = image_smiley1[i];
+
+	bool** smiley = temp;
+
 	SN74HC595_Config rowConfig;
 	rowConfig.chainedComponents = 3;
 	rowConfig.DS = D11;
@@ -171,7 +178,7 @@ int main(void)
 	rowConfig.STCP = D13;
 
 	SN74HC595_Config columnConfig;
-	columnConfig.chainedComponents = 2;
+	columnConfig.chainedComponents = 3;
 	columnConfig.DS = D2;
 	columnConfig.SHCP = D3;
 	columnConfig.STCP = D4;
@@ -180,12 +187,13 @@ int main(void)
 
 	for(;;)
 	{
-		ledScreen.scrollRows(120);
-		ledScreen.clear();
-		wait(2);
+		ledScreen.display(smiley);
+		/*ledScreen.scrollRows(120);
+		ledScreen.clear();*/
+		/*wait(2);
 		ledScreen.scrollColumns(120);
 		ledScreen.clear();
-		wait(2);
+		wait(2);*/
 	}
 }
 

@@ -81,7 +81,7 @@
 									<listOptionValue builtIn="false" value="mbed_nucleo_f411re_arm_none_gcc_5_2_hardfp"/>
 								</option>
 								<option id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script.1768711116" name="Linker Script (-T)" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.script" value="${workspace_loc:/${ProjName}/LinkerScript.ld}" valueType="string"/>
-								<option id="gnu.cpp.link.option.flags.549908099" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.549908099" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-specs=nosys.specs -specs=nano.specs" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1239175428" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
