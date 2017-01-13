@@ -64,7 +64,7 @@ void _exit(int status)
 	while (1)
 	{
 		__asm("NOP");
-	}		/* Make sure we hang here */
+	}
 }
 
 /**
@@ -91,4 +91,24 @@ caddr_t _sbrk(int incr)
 
 	return (caddr_t) prev_heap_end;
 }
+
+/**
+ _kill
+ Kill current process.
+**/
+long _kill(pid_t pid, int sig)
+{
+	(void)pid;
+	(void)sig;
+	return 0;
+}
+
+long _getpid(pid_t pid)
+{
+	(void)pid;
+	return 0;
+}
+
+// For more system call function :
+//		https://github.com/bjornfor/stm32-test/blob/master/STM32L1xx_StdPeriph_Lib_V1.1.1/syscalls.c
 

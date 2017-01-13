@@ -11,7 +11,7 @@
 #include <bitset>
 #include <mbed.h>
 
-#define SN74HC595_OUTPUT_NUMBER (8u)
+#define SN74HC595_OUTPUT_NUMBER (8u*3)
 
 struct SN74HC595_Config
 {
@@ -27,7 +27,7 @@ class SN74HC595
 
 public:
 
-	SN74HC595(const SN74HC595_Config& config);
+	SN74HC595(const SN74HC595_Config& config, bool invert = false);
 
 	bit_ref operator[](unsigned int index);
 
@@ -42,6 +42,7 @@ private:
 	DigitalOut m_DS;
 	DigitalOut m_SHCP;
 	DigitalOut m_STCP;
+	bool m_invert;
 };
 
 

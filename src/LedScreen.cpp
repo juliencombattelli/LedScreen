@@ -9,40 +9,93 @@
 
 LedScreen::LedScreen(int rowCount, int columnCount, const SN74HC595_Config& rowConfig, const SN74HC595_Config& columnConfig) :
 	m_rowCount(rowCount), m_columnCount(columnCount),
-	m_rows(rowConfig), m_columns(columnConfig)
+	m_delay_ms(RETINAL_PERSISTENCE_MS / rowCount),
+	m_rows(rowConfig), m_columns(columnConfig, true)
 {
-
+	clear();
 }
 
-void LedScreen::display(bool matrix[][])
+void LedScreen::display(bool **matrix)
 {
-    for(int row = 0; row < m_rowCount; row++)
+    for(int rowIndex = 0; rowIndex < m_rowCount; rowIndex++)
     {
-        m_rows[row] = 1;
+        m_rows[rowIndex] = 1;
 
-        for(int column = 0; column < m_columnCount; column++)
+        for(int columnIndex = 0; columnIndex < m_columnCount; columnIndex++)
         {
-            if (matrix[m_rowCount - 1 - row][m_columnCount - 1 - column])
-            	m_columns[m_columnCount - 1 - column] = 1;
+            if (matrix[m_rowCount - 1 - rowIndex][m_columnCount - 1 - columnIndex])
+            	m_columns[m_columnCount - 1 - columnIndex] = 1;
             else
-            	m_rows[m_rowCount - 1 - row] = 0;
+            	m_rows[m_rowCount - 1 - rowIndex] = 0;
         }
 
         m_rows.write();
         m_columns.write();
-        wait_ms(DELAY);
-        m_rows[row] = 0;
+        wait_ms(m_delay_ms);
+        m_rows[rowIndex] = 0;
     }
 }
 
-void LedScreen::display(bool matrix[][], int duration_ms)
+void LedScreen::display(bool **matrix, int frameTime_ms)
 {
 	time_t startTime = time(NULL);
 	time_t timeTotal = 0;
 
-	while( timeTotal < duration_ms )
+	while( timeTotal < frameTime_ms )
 	{
-		afficher_image_une_fois( mon_tab );
+		display(matrix);
 		timeTotal = time(NULL) - startTime;
 	}
+}
+
+void LedScreen::displayRow(int rowIndex, int frameTime_ms)
+{
+	m_rows[rowIndex] = 1;
+
+	for(int columnIndex = 0; columnIndex < m_columnCount; columnIndex++)
+		m_columns[columnIndex] = 1;
+
+	m_rows.write();
+	m_columns.write();
+	wait_ms(frameTime_ms);
+	m_columns.clear();
+	m_rows[rowIndex] = 0;
+}
+
+void LedScreen::displayColumn(int columnIndex, int frameTime_ms)
+{
+	m_columns[columnIndex] = 1;
+
+	for(int rowIndex = 0; rowIndex < m_rowCount; rowIndex++)
+		m_rows[rowIndex] = 1;
+
+	m_rows.write();
+	m_columns.write();
+	wait_ms(frameTime_ms);
+	m_rows.clear();
+	m_columns[columnIndex] = 0;
+}
+
+void LedScreen::scrollRows(int frameTime_ms)
+{
+	for(int i = 0; i < m_rowCount; i++)
+	{
+		displayRow(i , frameTime_ms);
+	}
+}
+
+void LedScreen::scrollColumns(int frameTime_ms)
+{
+	for(int i = 0; i < m_columnCount; i++)
+	{
+		displayColumn(i , frameTime_ms);
+	}
+}
+
+void LedScreen::clear()
+{
+	m_rows.clear();
+	m_rows.write();
+	m_columns.clear();
+	m_columns.write();
 }
