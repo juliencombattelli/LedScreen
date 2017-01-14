@@ -26,7 +26,7 @@ Picture::Picture(const Vector2D<uint8_t> &p_vector, uint16_t p_x, uint16_t p_y, 
 }
 
 Picture::Picture(const Vector2D<uint8_t> &p_vector, uint16_t p_x, uint16_t p_y) :
-		Displayable(p_x, p_y, p_vector.getColumnCount(), p_vector.getRowCount(), none, 0)
+	Displayable(p_x, p_y, p_vector.getColumnCount(), p_vector.getRowCount(), none, 0)
 {
 
 }
@@ -38,7 +38,10 @@ Picture::~Picture()
 
 led_state_t Picture::get_value(uint16_t p_x, uint16_t p_y) const
 {
-	if(m_vector(p_y - m_y, p_x - m_x))
+	int pictureOrigin_x = p_x - m_x;
+	int pictureOrigin_y = p_y - m_y;
+
+	if((pictureOrigin_x < m_vector.getColumnCount()) and (pictureOrigin_y < m_vector.getRowCount()) and m_vector(pictureOrigin_y, pictureOrigin_x))
 		return ON;
 	else
 		return OFF;
