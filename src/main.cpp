@@ -163,13 +163,21 @@ int main(void)
 
 	LedScreen ledScreen(21, 21, rowConfig, columnConfig);
 
-	Picture frame(grand_smiley,10,10,10,10,none,0);
+	Picture frame(grand_smiley,0,0,21,21,none,0);
 	Picture frame2(petit_smiley,10,10,5,5,none,0);
+	Picture frame3(petit_smiley,0,0,5,5,none,0);
+	Picture frame4(petit_smiley,0,15,5,5,none,0);
+
+	ledScreen.push(frame);
+	ledScreen.push(frame2);
+	ledScreen.push(frame3);
+	ledScreen.push(frame4);
 
 	for(;;)
 	{
 		//ledScreen.display((Displayable&)frame);
-		ledScreen.display((Displayable&)frame2);
+		//ledScreen.display((Displayable&)frame2);
+		ledScreen.display();
 		/*int i = 20;
 		ledScreen.displayRow(i,120);
 		ledScreen.displayColumn(i,120);*/

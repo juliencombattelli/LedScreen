@@ -10,6 +10,7 @@
 
 #include <SN74HC595.h>
 #include <display/Displayable.h>
+#include <vector>
 
 #define RETINAL_PERSISTENCE_MS (20u)
 
@@ -23,6 +24,7 @@ public:
 	void display(const bool **matrix, int duration_ms);
 	void display(Displayable &displayable);
 	void display(Displayable &displayable, int duration_ms);
+	void display();
 
 	void displayRow(int rowIndex, int frameTime_ms);
 	void displayColumn(int columnIndex, int frameTime_ms);
@@ -31,6 +33,8 @@ public:
 	void scrollColumns(int frameTime_ms);
 
 	void clear();
+
+	void push(Displayable& displayable);
 
 private:
 
@@ -41,6 +45,8 @@ private:
 
 	SN74HC595 m_rows;
 	SN74HC595 m_columns;
+
+	std::vector<Displayable*> m_displayables;
 };
 
 #endif /* SRC_LEDSCREEN_H_ */

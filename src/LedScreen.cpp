@@ -86,6 +86,29 @@ void LedScreen::display(Displayable &displayable, int duration_ms)
 	}
 }
 
+void LedScreen::display()
+{
+	m_columns.clear();
+	for(int rowIndex = 0; rowIndex < m_rowCount; rowIndex++)
+	{
+		m_rows[rowIndex] = 1;
+
+		for(int columnIndex = 0; columnIndex < m_columnCount; columnIndex++)
+			for(auto* displayable : m_displayables)
+				m_columns[columnIndex] = m_columns[columnIndex] | displayable->get_led_state(columnIndex, rowIndex);
+
+		m_rows.write();
+		m_columns.write();
+
+		wait_ms(m_delay_ms);
+
+		m_rows[rowIndex] = 0;
+
+		m_columns.clear();
+		m_columns.write();
+	}
+}
+
 void LedScreen::displayRow(int rowIndex, int frameTime_ms)
 {
 	m_rows[rowIndex] = 1;
@@ -136,4 +159,9 @@ void LedScreen::clear()
 	m_rows.write();
 	m_columns.clear();
 	m_columns.write();
+}
+
+void LedScreen::push(Displayable& displayable)
+{
+	m_displayables.push_back(&displayable);
 }
