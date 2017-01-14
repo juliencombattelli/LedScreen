@@ -21,8 +21,8 @@ public:
 
 	void display(const bool **matrix);
 	void display(const bool **matrix, int duration_ms);
-	void display(const Displayable &displayable);
-	void display(const Displayable &displayable, int duration_ms);
+	void display(Displayable &displayable);
+	void display(Displayable &displayable, int duration_ms);
 
 	void displayRow(int rowIndex, int frameTime_ms);
 	void displayColumn(int columnIndex, int frameTime_ms);

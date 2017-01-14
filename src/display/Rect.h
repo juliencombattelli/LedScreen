@@ -10,7 +10,7 @@ public:
 
 	bool is_inside(uint16_t p_x, uint16_t p_y) const;
 
-private:
+protected:
 	unsigned int m_x;
 	unsigned int m_y;
 	unsigned int m_width;

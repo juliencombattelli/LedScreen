@@ -17,12 +17,12 @@ Displayable::~Displayable()
 
 }
 
-led_state_t Displayable::get_value(uint16_t p_x, uint16_t p_y) const
+led_state_t Displayable::get_led_state(uint16_t p_x, uint16_t p_y) const
 {
 	if(!is_inside(p_x, p_y))
 		return OFF;
 	else
 	{
-		return ON;
+		return get_value(p_x, p_y);
 	}
 }
