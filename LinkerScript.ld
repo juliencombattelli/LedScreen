@@ -183,7 +183,6 @@ SECTIONS
     . = ALIGN(4);
     PROVIDE ( end = . );
     PROVIDE ( _end = . );
-    PROVIDE ( __end__ = . );
     __heap_addr = .;
     __HeapBase = .;
     . = . + _Min_Heap_Size;
