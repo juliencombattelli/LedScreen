@@ -53,6 +53,39 @@ void LedScreen::display(const bool **matrix, int frameTime_ms)
 	}
 }
 
+void LedScreen::display(const Displayable &displayable)
+{
+	for(int rowIndex = 0; rowIndex < m_rowCount; rowIndex++)
+	{
+		m_rows[rowIndex] = 1;
+
+		for(int columnIndex = 0; columnIndex < m_columnCount; columnIndex++)
+			m_columns[columnIndex] = displayable.get_value(columnIndex, rowIndex);
+
+		m_rows.write();
+		m_columns.write();
+
+		wait_ms(m_delay_ms);
+
+		m_rows[rowIndex] = 0;
+
+		m_columns.clear();
+		m_columns.write();
+	}
+}
+
+void LedScreen::display(const Displayable &displayable, int duration_ms)
+{
+	time_t startTime = time(NULL);
+	time_t timeTotal = 0;
+
+	while( timeTotal < duration_ms )
+	{
+		display(displayable);
+		timeTotal = time(NULL) - startTime;
+	}
+}
+
 void LedScreen::displayRow(int rowIndex, int frameTime_ms)
 {
 	m_rows[rowIndex] = 1;

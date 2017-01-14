@@ -207,9 +207,11 @@ int main(void)
 
 	LedScreen ledScreen(21, 21, rowConfig, columnConfig);
 
+	Displayable frame(10,10,2,3,none,0);
+
 	for(;;)
 	{
-		ledScreen.display(smiley);
+		ledScreen.display(frame);
 
 		/*int i = 20;
 		ledScreen.displayRow(i,120);

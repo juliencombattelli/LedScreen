@@ -9,6 +9,7 @@
 #define SRC_LEDSCREEN_H_
 
 #include <SN74HC595.h>
+#include <display/Displayable.h>
 
 #define RETINAL_PERSISTENCE_MS (20u)
 
@@ -20,6 +21,8 @@ public:
 
 	void display(const bool **matrix);
 	void display(const bool **matrix, int duration_ms);
+	void display(const Displayable &displayable);
+	void display(const Displayable &displayable, int duration_ms);
 
 	void displayRow(int rowIndex, int frameTime_ms);
 	void displayColumn(int columnIndex, int frameTime_ms);
