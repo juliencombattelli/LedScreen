@@ -26,7 +26,7 @@ Picture::Picture(const Vector2D<uint8_t> &p_vector, uint16_t p_x, uint16_t p_y, 
 }
 
 Picture::Picture(const Vector2D<uint8_t> &p_vector, uint16_t p_x, uint16_t p_y) :
-		Displayable(p_x, p_y, p_vector.m_column, p_vector.m_row, none, 0)
+		Displayable(p_x, p_y, p_vector.getColumnCount(), p_vector.getRowCount(), none, 0)
 {
 
 }
