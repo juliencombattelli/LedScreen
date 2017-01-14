@@ -8,9 +8,7 @@
 #ifndef SRC_VECTOR2D_H_
 #define SRC_VECTOR2D_H_
 
-#include <cstdlib>
 #include <memory>
-#include <algorithm>
 
 template<typename T, class A = std::allocator<T>>
 class Vector2D
@@ -38,6 +36,8 @@ public:
 	iterator end();
 
 	void setSize(int row, int column);
+	int getRowCount() const;
+	int getColumnCount() const;
 
 	void clear();
 
@@ -63,7 +63,7 @@ template<typename T, class A>
 Vector2D<T,A>::Vector2D(int rowCount, int columnCount, const std::initializer_list<T>& list) :
 	m_row(rowCount), m_column(columnCount), m_data(nullptr)
 {
-	m_data = (T*)malloc(sizeof(T)*m_row*m_column);
+	m_data = new T[m_row*m_column];
 
 	std::copy(list.begin(), list.end(), begin());
 }
@@ -72,7 +72,7 @@ template<typename T, class A>
 Vector2D<T,A>::Vector2D(const std::initializer_list<std::initializer_list<T>>& list) :
 	m_row(list.size()), m_column(list.begin()->size()), m_data(nullptr)
 {
-	m_data = (T*)malloc(m_row*m_column*sizeof(T));
+	m_data = new T[m_row*m_column];
 
 	iterator i = end() - m_column;
 	for(auto& subList : list)
@@ -85,7 +85,7 @@ Vector2D<T,A>::Vector2D(const std::initializer_list<std::initializer_list<T>>& l
 template<typename T, class A>
 Vector2D<T,A>::~Vector2D()
 {
-	free(m_data);
+	delete[] m_data;
 }
 
 template<typename T, class A>
@@ -105,13 +105,25 @@ void Vector2D<T,A>::setSize(int row, int column)
 {
 	m_row = row;
 	m_column = column;
-	m_data = (T*)malloc(sizeof(T)*row*column);
+	m_data = new T[m_row*m_column];
+}
+
+template<typename T, class A>
+int Vector2D<T,A>::getRowCount() const
+{
+	return m_row;
+}
+
+template<typename T, class A>
+int Vector2D<T,A>::getColumnCount() const
+{
+	return m_column;
 }
 
 template<typename T, class A>
 void Vector2D<T,A>::clear()
 {
-	free(m_data);
+	delete[] m_data;
 	m_data = nullptr;
 	m_row = 0;
 	m_column = 0;
